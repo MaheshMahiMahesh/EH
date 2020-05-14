@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test App Title</title>
+    <meta name="description" content="Test App Title Description">
+    <meta name="keywords" content="Test App keywords comma separated"/>
+    <meta name="google-signin-client_id" content="462007368516-9i3q1q5v12915f5hsfimfj0b116eb7j5.apps.googleusercontent.com">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/angular-animate.min.js"></script>
+    <script src="lib/angular-aria.min.js"></script>
+    <script src="lib/angular-messages.min.js"></script>
+    <script src="lib/angular-material.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/HomePageCtrl.js"></script>
+    <link href="style/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style/angular-material.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <style type="text/css">
+      @font-face {
+        font-family: "Roboto-Black";
+        src: url('fonts/Roboto-Black.ttf') format('truetype');
+      }
+
+      @font-face {
+          font-family: "Roboto-Light";
+          src: url('fonts/Roboto-Light.ttf') format('truetype');
+      }
+
+      @font-face {
+          font-family: "Roboto-Medium";
+          src: url('fonts/Roboto-Medium.ttf') format('truetype');
+      }
+
+      @font-face {
+          font-family: "Roboto-Regular";
+          src: url('fonts/Roboto-Regular.ttf') format('truetype');
+      }
+    </style>
+    <link href="style/navbar.css" rel="stylesheet" />
+  </head>
+  <body ng-app="demoApp">
+
+    <!-- MENU START-->
+    <nav class="navbar navbar-fixed-top" data-spy="affix" data-offset-top="100" ng-controller="HomePageCtrl">
+      <!-- header  Start-->
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="#/homepage" class="navbar-brand"><img class="brand-logo" src="https://enterprises.upmc.com/wp-content/uploads/2018/01/evolent.png"></a>
+        </div>
+        
+         
+          <ul class="nav navbar-right navbar-nav">
+            <li><a href="#/registration">Contact</a></li>
+          </ul>
+      </div>
+      <!-- header end-->
+
+    </nav>
+    <!--  MENU END-->
+
+    <!-- VIEW CONTAINER -->
+    <div ng-view></div>
+    <!-- VIEW CONTAINER END-->
+
+    <!-- Home Page ng tempalte-->
+    <script type="text/ng-template" id="homepage.html">
+      <section class="first">
+        <div class="container"> 
+          <h1 class="text-center bann-title">"If you think good design is expensive, you should look at the costs of bad design."</h1>
+        </div>
+        <div class="h-btn-wrap text-center">
+          <a href="#/registration" class="hbtn">Click Here To See Contacts</a>
+        </div>
+      </section>
+    </script>
+    <!-- Home Page ng tempalte End-->
+
+    <!-- registration Page ng tempalte -->
+    <script type="text/ng-template" id="registration.html">
+      <section class="top-space">
+        <div class="container">
+          <md-content class="registration" layout-padding>
+            <h2 class="reg-title text-center">Contact Information </h2>
+            <p class="divider"></p>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  ng-repeat="data in data.Users">
+                  <td>{{data.first_name}}</td>
+                  <td>{{data.last_name}}</td>
+                  <td>{{data.email}}</td>
+                  <td>{{data.phone}}</td>
+                  <td>{{data.status}}</td>
+                  <td><a href="" ng-click="editData(data)" data-toggle="modal" data-target="#myModal">Edit</a> <a href="" class="delete" ng-if="data.status=='Inactive'" ng-click="Delete(data)">Delete</a></td>
+                </tr>
+                
+              </tbody>
+            </table>
+            <div class="text-center">
+            <md-button class="md-raised md-warn"  data-toggle="modal" data-target="#myModalAdd">Add</md-button>
+            </div>
+
+            <div id="myModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Data</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form name="registrationForm">
+                      <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                          <label>First name</label>
+                          <input type="text" name="firstName" ng-model="EItem.first_name" ng-pattern ="/^[a-zA-Z\s]*$/" required>
+                          <div ng-messages="registrationForm.firstName.$error">
+                            <div ng-message="required">First Name is required.</div>
+                            <div ng-message="pattern">Only alphabets are allowed.</div>
+                          </div>
+                        </md-input-container>
+                        <div flex="5" hide-xs hide-sm></div>
+                        <md-input-container class="md-block" flex-gt-sm>
+                          <label>Last Name</label>
+                          <input type="text" name="lastName" ng-model="EItem.last_name" ng-pattern ="/^[a-zA-Z\s]*$/" required>
+                          <div ng-messages="registrationForm.lastName.$error">
+                            <div ng-message="required">Last Name is required.</div>
+                            <div ng-message="pattern">Only alphabets are allowed.</div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                          <label>Email Address</label>
+                          <input type="email" name="Email" ng-model="EItem.email" ng-pattern="/^.+@.+\..+$/" required>
+                          <div ng-messages="registrationForm.Email.$error">
+                            <div ng-message="required">Email Address is required.</div>
+                            <div ng-message="pattern">Its not look like an e-mail address.</div>
+                          </div>
+                        </md-input-container>
+                        <div flex="5" hide-xs hide-sm></div>
+                        <md-input-container class="md-block" flex-gt-sm>
+                          <label>Phone Number</label>
+                          <input type="tel" name="Phone" ng-model="EItem.phone" ng-minlength="10" 
+                         ng-maxlength="10" required>
+                          <div ng-messages="registrationForm.Phone.$error">
+                            <div ng-message="required">Phone is required.</div>
+                            <div ng-message="minlength">Phone  10 Digit.</div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <p>Status</p>
+                      <md-radio-group  layout="row" ng-model="EItem.status" required>
+                        <md-radio-button value="Active" class="md-primary">Active</md-radio-button>
+                        <md-radio-button value="Inactive" class="md-primary">Inactive</md-radio-button>
+                      </md-radio-group>
+                      <div class="text-center">
+                      <md-button class="md-raised md-warn" ng-click="Edit(EItem)"  data-dismiss="modal">Save</md-button>
+                    </div>
+                    </form>
+                  </div>
+                 
+                </div>
+
+              </div>
+            </div>
+            
+            <div id="myModalAdd" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Contact</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form name="addForm">
+                      <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                          <label>First name</label>
+                          <input type="text" name="firstName" ng-model="AItem.first_name" ng-pattern ="/^[a-zA-Z\s]*$/" required>
+                          <div ng-messages="addForm.firstName.$error">
+                            <div ng-message="required">First Name is required.</div>
+                            <div ng-message="pattern">Only alphabets are allowed.</div>
+                          </div>
+                        </md-input-container>
+                        <div flex="5" hide-xs hide-sm></div>
+                        <md-input-container class="md-block" flex-gt-sm>
+                          <label>Last Name</label>
+                          <input type="text" name="lastName" ng-model="AItem.last_name" ng-pattern ="/^[a-zA-Z\s]*$/" required>
+                          <div ng-messages="addForm.lastName.$error">
+                            <div ng-message="required">Last Name is required.</div>
+                            <div ng-message="pattern">Only alphabets are allowed.</div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                          <label>Email Address</label>
+                          <input type="email" name="Email" ng-model="AItem.email" ng-pattern="/^.+@.+\..+$/" required>
+                          <div ng-messages="addForm.Email.$error">
+                            <div ng-message="required">Email Address is required.</div>
+                            <div ng-message="pattern">Its not look like an e-mail address.</div>
+                          </div>
+                        </md-input-container>
+                        <div flex="5" hide-xs hide-sm></div>
+                        <md-input-container class="md-block" flex-gt-sm>
+                          <label>Phone Number</label>
+                          <input type="tel" name="Phone" ng-model="AItem.phone" ng-minlength="10" 
+                         ng-maxlength="10" required>
+                          <div ng-messages="addForm.Phone.$error">
+                            <div ng-message="required">Phone is required.</div>
+                            <div ng-message="minlength">Phone  10 Digit.</div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <p>Status</p>
+                      <md-radio-group  layout="row" ng-model="AItem.status" required>
+                        <md-radio-button value="Active" class="md-primary">Active</md-radio-button>
+                        <md-radio-button value="Inactive" class="md-primary">Inactive</md-radio-button>
+                      </md-radio-group>
+                      <div class="text-center">
+                      <md-button class="md-raised md-warn" ng-click="Add(AItem)"  data-dismiss="modal" ng-disabled="addForm.$invalid">Submit</md-button>
+                    </div>
+                    </form>
+                  </div>
+                 
+                </div>
+
+              </div>
+            </div>
+          </md-content>
+        </div>
+      </section>
+    </script>
+
+    <footer class="page-footer">
+      <div style="background: #000000; padding: 20px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12">
+             <p class="text-center copyright">© 2018 Copyright: Mahesh Mhaske</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+  </body>
+</html>

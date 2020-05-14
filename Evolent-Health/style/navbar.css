@@ -1,0 +1,113 @@
+/*header css*/
+body{font-family: "Roboto-Regular";}
+.first {padding-top:25%;height:100vh;min-height:400px;background-size:cover;background-image:url('https://www.fthecouch.com/portal/images/login.jpg');}
+.affix {-webkit-transition:padding 0.2s ease-out;-moz-transition:padding 0.2s ease-out;-o-transition:padding 0.2s ease-out;transition:padding 0.2s ease-out;}
+.affix-top {border-color:transparent;padding: 15px;-webkit-transition:all 0.5s ease;-moz-transition:all 0.5s ease;-o-transition:all 0.5s ease;transition:all 0.5s ease;}
+.nav.navbar-nav>li>a {color: #000;font-weight: 700;}
+.affix-top .navbar-collapse {border-color:transparent;box-shadow:initial;}
+.navbar{background-color: #fff;
+    font-family: "Libre Baskerville", serif;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);}
+.affix{width: 100%;background-color: #fff;opacity: .9;}
+.navbar-toggle>i{margin: 5px;color: #fff;font-size: 20px;}
+.brand-logo{height: 28px;}
+.nav>li>a:hover, .nav>li>a:focus{background-color: transparent;text-decoration: none;}
+.nav.navbar-nav>li>a:hover, .nav.navbar-nav>li>a:focus{color: #fb6807;}
+.nav.navbar-right{margin: 0px !important;}
+.bann-title, .reg-title{color: #fff;font-family: "Roboto-Light";}
+/*Footer css*/
+.page-footer .footer-title{color: #fff;font-size: 18px;}
+.page-footer .social-btn{padding: 5px;position: relative;border: 2px solid #fff;color: #fff;    width: 50%;
+    margin: auto;}
+.page-footer .social-btn.fb{background-color: #3b5998;}
+.page-footer .social-btn.li{background-color: #0077b5;}
+.page-footer .social-btn.gp{background-color: #dd4b39;}
+.page-footer .social-btn>.fa{position: relative;left: 2px;}
+.page-footer .copyright{margin:15px;font-family: "Roboto-Black";color: #fff;}
+.left-side-bar{font-size: 30px;cursor: pointer;float: left;color: #fff;}
+.left-side-bar{margin: 5px;}
+.left-side-bar-containt .navbar-nav{display: grid;width: 100%;margin: 0;}
+.left-side-bar-containt ul li a{color: #fff;font-weight: 700;font-size: 14px;text-align: center;}
+.left-side-bar-containt .navbar-nav a{border-bottom: 1px solid #524747;}
+.mySidenav .brand-logo{position: absolute;top: 18px;margin-left: 10px;}
+.sidenav {height: 100%;width: 0;position: fixed;z-index: 1;top: 0;left: 0;background-color: #111;overflow-x: hidden;transition: 0.5s;padding-top: 60px;}
+.sidenav .closebtn {position: absolute;top: 0;right: 18px;cursor: pointer;font-size: 36px;text-decoration: none;color: #aaa;}
+.top-space{margin-top: 6%;background-color: #e2e2e2;    min-height: 100vh;}
+.registration{background-color: #fff;margin: 15px;}
+.reg-title{color: #000;}
+.divider{border-bottom: 2px solid #fb6807;width: 25%;margin: auto;padding: 0px;     margin-bottom: 30px;}
+.pie-title{font-size: 24px;font-family: "Roboto-Light";}
+.hair_color{margin: 15px 0 15px;}
+.media-title{border-top: 1px solid #ccc;padding: 10px;font-size: 16px;}
+.videoiframe{height: 320px;width: 100%;}
+#channel-name{font-size: 16px;}
+#channel-thumbnail{border-radius: 50%;}
+.key-title{font-family: "Roboto-Medium"; font-size: 14px;}
+.key-value{font-family: "Roboto-Regular"; font-size: 14px;}
+.modal-header {
+    text-align: center;
+        background-image: linear-gradient(to right, #fdfdfd, #d4d4d4, #ffffff);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+}
+.delete{
+	color: red;
+}
+.h-btn-wrap{
+	margin: 20px 0;
+}
+.hbtn{
+	background-color: rgb(244,81,30);
+    color: #fff;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 2px;
+}
+.hbtn:hover{
+	color: #f2f2f2;
+	text-decoration: none;
+}
+/*
+  Landscape tablets and medium desktops 
+*/
+@media (min-width: 992px) and (max-width: 1199px) {
+.page-footer .social-btn{width:auto;margin: auto;}
+}
+
+/* 
+  Portrait tablets and small desktops 
+*/
+@media (min-width: 768px) and (max-width: 991px) {
+.first {padding-top:18%;}
+.page-footer .social-btn{width:auto;margin: auto;}
+}
+
+/* 
+  Portrait phones and smaller 
+*/
+@media (max-width: 480px) {
+	.brand-logo{height: 34px !important;}
+	.navbar-brand {margin-left: 4px;}
+	.navbar-toggle{margin: 0;padding: 0;}
+	.navbar-toggle>i{font-size: 30px;}
+	.left-side-bar{margin: 4px;}
+	.navbar-nav>li>a{text-align: center;border-bottom: 2px solid #fff;margin: auto;}
+	.first {padding-top:54%;}
+	.page-footer .footer-title {font-size: 14px;text-align: justify;}
+	.social-btn>.fa {left: 16px;}
+	.page-footer .social-btn{width: 34px;margin: auto;}
+	.bann-title{font-size: 18px;}
+	.top-space {margin-top: 22%;}
+	.registration {margin: 0 0 15px 0;}
+	#channel-name{font-size: 12px;}
+	#channel-thumbnail{border-radius: 50%;width: 20%;}
+	.reg-title {font-size: 20px;}
+	.pie-title{font-size: 16px;font-family: "Roboto-Light";}
+	.navbar-header{
+		float: left;
+	}
+	.nav.navbar-right.navbar-nav{
+		float: right;
+	}
+}
